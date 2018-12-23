@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://react1.tilda.ws/metod-2 -->
+<html data-livestyle-extension="available"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>React. Методическое пособие №2</title><meta property="og:url" content="http://react1.tilda.ws/metod-2"><meta property="og:title" content="React. Методическое пособие №2"><meta property="og:description" content=""><meta property="og:type" content="website"><meta property="og:image" content="https://static.tildacdn.com/tild3462-6232-4065-b933-323530386232/c3322856334b481d8788.png"><meta property="fb:app_id" content="257953674358265"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="http://tilda.ws/"><link rel="dns-prefetch" href="http://static.tildacdn.com/"><link rel="canonical" href="http://react1.tilda.ws/metod-2"> <link rel="shortcut icon" href="http://static.tildacdn.com/img/tildafavicon.ico" type="image/x-icon"><!-- Assets --><link rel="stylesheet" href="./Введение в React.js_files/tilda-grid-3.0.min.css" type="text/css" media="all"><link rel="stylesheet" href="./Введение в React.js_files/tilda-blocks-2.12.css" type="text/css" media="all"><link rel="stylesheet" href="./Введение в React.js_files/tilda-animation-1.0.min.css" type="text/css" media="all"><link rel="stylesheet" href="./Введение в React.js_files/tilda-slds-1.4.min.css" type="text/css" media="all"><link rel="stylesheet" href="./Введение в React.js_files/tilda-zoom-2.0.min.css" type="text/css" media="all"><link rel="stylesheet" href="./Введение в React.js_files/highlight.min.css" type="text/css" media="all"><script type="text/javascript" id="tildastatscript" async="" src="./Введение в React.js_files/tildastat.min.js"></script><script src="./Введение в React.js_files/jquery-1.10.2.min.js"></script><script src="./Введение в React.js_files/tilda-scripts-2.8.min.js"></script><script src="./Введение в React.js_files/tilda-blocks-2.7.js"></script><script src="./Введение в React.js_files/tilda-animation-1.0.min.js"></script><script src="./Введение в React.js_files/tilda-slds-1.4.min.js"></script><script src="./Введение в React.js_files/hammer.min.js"></script><script src="./Введение в React.js_files/tilda-zoom-2.0.min.js"></script><script src="./Введение в React.js_files/highlight.min.js"></script><script src="./Введение в React.js_files/lazyload-1.3.min.js"></script><style type="text/css">/*.lleo_errorSelection *::-moz-selection,
+.lleo_errorSelection *::selection,
+.lleo_errorSelection *::-webkit-selection {
+    background-color: red !important;
+    color: #fff !important;;
+}*/
+
+#lleo_dialog,
+#lleo_dialog * {
+    color: #000 !important;
+    font: normal 13px Arial, Helvetica !important;
+    line-height: 15px !important;
+    margin: 0 !important;
+	padding: 0 !important;
+	background: none !important;
+	border: none 0 !important;
+	position: static !important;
+	vertical-align: baseline !important;
+	overflow: visible !important;
+	width: auto !important;
+	height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+	float: none !important;
+	visibility: visible !important;
+	text-align: left !important;
+    text-transform: none !important;
+	border-collapse: separate !important;
+	border-spacing: 2px !important;
+    box-sizing: content-box !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    letter-spacing: normal !important;
+    -webkit-filter: none !important;
+    -moz-filter: none !important;
+    filter: none !important;
+}
+#lleo_dialog *:before,
+#lleo_dialog *:after {
+    content: '';
+}
+
+#lleo_dialog iframe {
+	height: 0 !important;
+	width: 0 !important;
+}
+
+#lleo_dialog {
+    position: absolute !important;
+    background: #fff !important;
+    border: solid 1px #ccc !important;
+    padding: 7px 0 0 !important;
+    left: -999px;
+    top: -999px;
+    width: 440px !important;
+    overflow: hidden;
+    display: block !important;
+    z-index: 999999999 !important;
+    box-shadow: 8px 16px 30px rgba(0, 0, 0, 0.16) !important;
+    border-radius: 3px !important;
+    opacity: 0 !important;
+    -webkit-transform: translateY(15px);
+    -moz-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    -o-transform: translateY(15px);
+    transform: translateY(15px);
+}
+#lleo_dialog.lleo_show_small {
+    width: 150px !important;
+}
+#lleo_dialog.lleo_show {
+    opacity: 1 !important;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s !important;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s !important;
+    -ms-transition: -ms-transform 0.3s, opacity 0.3s !important;
+    -o-transition: -o-transform 0.3s, opacity 0.3s !important;
+    transition: transform 0.3s, opacity 0.3s !important;
+}
+#lleo_dialog.lleo_collapse {
+    opacity: 0 !important;
+    -webkit-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -moz-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -ms-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -o-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s !important;
+    -moz-transition: -moz-transform 0.4s, opacity 0.4s !important;
+    -ms-transition: -ms-transform 0.4s, opacity 0.4s !important;
+    -o-transition: -o-transform 0.4s, opacity 0.4s !important;
+    transition: transform 0.4s, opacity 0.4s !important;
+}
+#lleo_dialog input::-webkit-input-placeholder {
+    color: #aaa !important;
+}
+#lleo_dialog .lleo_has_pic #lleo_word {
+	margin-right: 80px !important;
+}
+#lleo_dialog #lleo_translationsContainer1 {
+	position: relative !important;
+}
+#lleo_dialog #lleo_translationsContainer2 {
+	padding: 7px 0 0 !important;
+	vertical-align: middle !important;
+}
+#lleo_dialog #lleo_word {
+    color: #000 !important;
+    margin: 0 5px 2px 0 !important;
+    /*float: left !important;*/
+}
+#lleo_dialog .lleo_has_sound #lleo_word {
+    margin-left: 30px !important;
+}
+#lleo_dialog #lleo_text {
+    font-weight: bold !important;
+    color: #d56e00 !important;
+    text-decoration: none !important;
+    cursor: default !important;
+}
+/*
+#lleo_dialog #lleo_text.lleo_known {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+}
+*/
+/*#lleo_dialog #lleo_closeBtn {
+    position: absolute !important;
+    right: 6px !important;
+    top: 5px !important;
+    line-height: 1px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 0 !important;
+    color: #aaa !important;
+    display: block !important;
+	z-index: 9999999999 !important;
+	width: 7px !important;
+	height: 7px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}*/
+
+#lleo_dialog #lleo_optionsBtn {
+    position: absolute !important; 
+    right: 3px !important;
+    top: 5px !important;
+    line-height: 1px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    color: #aaa !important;
+    padding: 2px !important;
+	display: none;
+}
+    #lleo_dialog.lleo_optionsShown #lleo_optionsBtn {
+        display: block !important;
+    }
+    #lleo_dialog #lleo_optionsBtn img {
+        width: 12px !important;
+        height: 12px !important;
+    }
+#lleo_dialog #lleo_sound {
+    float: left !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-left: 9px !important;
+    margin-right: 3px !important;
+    background: 0 0 no-repeat !important;
+    cursor: pointer !important;
+    display: none !important;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAfNJREFUeNq0U01IVFEU/u57Oo5WhBRIBBptykWLYBa2soWiEKQQEbrSFsGbVRQKQc2iFqGitXqvjQxCoCJCqyI0aBUtZILaJNUuYWYWo8HovJ/707nP94bnz0rxwvfOuefd8517fi5TSuE4i50YwZ3l37ZhNlpgzFkaaM/G9sHF1YskNrT+7l4PjMOcb78t2JL71uxgB+2UlfxHTtq5N94fIOh/88kWgWfl73ZCSQkpeGg3H091JY6dI2S00qA/N3KO3dDUYhFgEmZGurG+w9FqApIHsVM7kaTF9Nhn0r8Q7hPWQgIRuNaH3AMUA4W/Lkdh04cpFS43G0TgxQTvCdMETVAk3KynIHwXZU/ge8XDt7KH9bKLjU0P2zVO5LsEpSejVRJ9UR18EtfqKegovs9R3Q6w9c/H1o4Aa2Jwm1lIvn9RJ4w9RdRRzqcYrpwycCll4Cy1lnkS3Bc6vfBg28v8aRIfI78zhB/1GygROH3jLyyzMQ0zlUZuZBSlKkeLoegGtTjYLcJ8pF+NakHOFC2J6w+f25mxSfWrWFF/ShXVPTGvtN14NNkVnxlYWJkgZEL7/vwKr55lKSVnaGYWkuYgrgG172uUv47+U7fw0EHaJXmalUQy/HqO6lBzEsVjJC4Q8kd6TETQpjuaGOvjv8b/AgwA/ij1XMx58NIAAAAASUVORK5CYII=) !important;
+}
+#lleo_dialog .lleo_has_sound #lleo_sound {
+    display: block !important;
+}
+
+#lleo_dialog #lleo_soundWave {
+    border: solid 5px #4495CC !important;
+    border-radius: 5px !important;
+    position: absolute !important;
+    left: -5px !important;
+    top: -5px !important;
+    right: -5px !important;
+    bottom: -5px !important;
+    z-index: 0 !important;
+    opacity: 0.9 !important;
+    display: none !important;
+}
+    #lleo_dialog #lleo_soundWave.lleo_beforePlaying {
+        display: block !important;
+    }
+    #lleo_dialog #lleo_soundWave.lleo_playing {
+        opacity: 0 !important;
+        border-width: 20px !important;
+        border-radius: 30px !important;
+
+        -webkit-transform: scale(1.07,1.1) !important;
+        -moz-transform: scale(1.07,1.1) !important;
+        -ms-transform: scale(1.07,1.1) !important;
+        transform: scale(1.07,1.1) !important;
+
+        -webkit-transition: all 0.6s !important;
+        -moz-transition: all 0.6s !important;
+        -ms-transition: all 0.6s !important;
+        transition: all 0.6s !important;
+    }
+
+
+#lleo_dialog #lleo_picOuter {
+    position: absolute !important;
+    float: right !important;
+    top: 4px;
+    right: 5px;
+    z-index: 9 !important;
+    display: none !important;
+    width: 100px !important;
+}
+    #lleo_dialog.lleo_optionsShown #lleo_picOuter {
+        right: 25px;
+    }
+#lleo_dialog .lleo_has_pic #lleo_picOuter {
+    display: block !important;
+}
+    #lleo_dialog #lleo_picOuter:hover {
+        width: auto !important;
+        z-index: 11 !important;
+    }
+#lleo_dialog #lleo_pic,
+#lleo_dialog #lleo_picBig {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    border: solid 2px #fff !important;
+    -webkit-border-radius: 2px !important;
+    -moz-border-radius: 2px !important;
+	border-radius: 2px !important;
+    z-index: 1 !important;
+}
+#lleo_dialog #lleo_pic {
+	position: relative !important;
+    border: none !important;
+	width: 30px !important;
+}
+#lleo_dialog #lleo_picBig {
+    box-shadow: -1px 2px 4px rgba(0,0,0,0.3);
+    z-index: 2 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+    #lleo_dialog #lleo_picOuter:hover #lleo_picBig {
+        visibility: visible !important;
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.3s !important;
+        -webkit-transition-delay: 0.3s !important;
+    }
+#lleo_dialog #lleo_transcription {
+    margin: 0 80px 4px 31px !important;
+    color: #aaaaaa !important;
+}
+#lleo_dialog .lleo_no_trans {
+    color: #aaa !important;
+}
+
+#lleo_dialog .ll-translation-counter {
+	float: right !important;
+    font-size: 11px !important;
+    color: #aaa !important;
+    padding: 2px 2px 1px 10px !important;
+}
+
+#lleo_dialog .ll-translation-text {
+	float: left !important;
+	/*width: 80% !important;*/
+}
+
+#lleo_dialog #lleo_trans a {
+    color: #3F669F !important;
+    text-decoration: none !important;
+    text-overflow: ellipsis !important;
+    padding: 1px 4px !important;
+    overflow: hidden !important;
+    float: left !important;
+    width: 320px !important;
+}
+
+#lleo_dialog .ll-translation-item {
+    color: #3F669F !important;
+    border: solid 1px #fff !important;
+    padding: 3px !important;
+    width: 100% !important;
+    float: left !important;
+	-moz-border-radius: 2px !important;
+	-webkit-border-radius: 2px !important;
+	border-radius: 2px !important;
+}
+
+#lleo_dialog .ll-translation-item:hover {
+	border: solid 1px #9FC2C9 !important;
+    background: #EDF4F6 !important;
+	cursor: pointer !important;
+}
+#lleo_dialog .ll-translation-item:hover .ll-translation-counter {
+	color: #83a0a6 !important;
+}
+
+#lleo_dialog .ll-translation-marker {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAWSURBVBhXY7RPm/+fAQkwIXNAbMICAJQ8AkvqWg/SAAAAAElFTkSuQmCC) !important;
+    display: inline-block !important;
+    width: 4px !important;
+    height: 4px !important;
+    margin: 7px 5px 2px 2px !important;
+    float: left !important;
+}
+
+#lleo_dialog #lleo_icons {
+    color: #aaa !important;
+    font-size: 11px !important;
+    background: #f8f8f8 !important;
+    padding: 10px 10px 10px 16px !important;
+}
+#lleo_icons a {
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 10px -4px 3px !important;
+    text-decoration: none !important;
+    opacity: 0.5 !important;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAAQCAYAAADK4SssAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAADopJREFUeNqsWQt0lNWd/33fzGQemUcmzwkhSkhYSSgpJJGVWHlEVEwLq0AFhC520xN0cfcUkHZ7QNetwfac6mp3oR5Ss8c9XaPVhoJCtGwSkYQglQBBNg/IgxBIQl7zyCSZ97f/e7+ZyeShpu7eM/fc797vu9/j/u7v93+MUqlUwuv1IlQ6Ojqk7u5utLaWo/nanfB45tbnsSI6GgsXLhQwpcx/9rCE/0PpOLSL39Pnh9TY2Y1NJXW4NeTFz59agp9uXASfYwR/Xv9dxJ6pxwJBhCIQoKtFuIUAXPRksyTx+U2rVy0TtdrywNhYeviFJAlSsJ1oJNY2ZdfVLeKdiGIb96Kqw45LvU40Dbj42F2mKNyXasCjGTGI0aqmvr6wdseL075fEORl6h+yYWzcDaNeh8Q4E7z0kVPLx//5Il0uTLqHQqGA3z/92qioKHg8Hn5/SZqYogwdOBwO6d19+9DQ0ADdqrmTJhesLML6nQ38uLj4jHSkuJi/a+Q1vd8QxORg6/dBUtDblLzbhBuuOIhJcfhl5QCeyB9DusWA3MO/hf2+e6FwjtFHKGj15Y8M0Cd0KQTpbr8kCBrNsaTn9iXoH3jga5/739nZC7Mj+n7aHBVNwwSUEhuy4rCR6m8vD9ID5MVyeAI4cPo2suI0KMpJgEoU+A5QiCKmg0jT6H49/cP4Tt4i/FXaHLS0d6O57RZ0WvXXvltaWhpOnz7NCbZ371588MEHHLQ9e/bwev78eTzzzDPo7+8PzxFDIO4rKOAgomHihq+9ckxgdd26dWHQSkuBvJ2lmLqTv2kJbQAGot/nw9U7xDa9CQHakY5xFd45f4OdhWZhFtz534GP9k9A9PPWIxGgAu2AgHwP79hYYseRI8q+f/832Kqr4O7t5bt6pioFAmIkiJXXrbCYtbg85MF1q5vv+IFxH6KUApSizLDsJB09F2i3yozoc3pn/CaBVKPr9gC+X3g/3ih5GruL1mPPjx7DwLCdA/x1xWKx4K677kJ6ejpWr14dHt+xYwdSUlKQl5cHvV4/aQ7/GMZEDiDVI9IF4asecqQ4FwzvnaWl/x84hhnJwFAKSiTFaCDS7ifhhEjMu9pJS0dg0SH8Bh28BKqCXSuRxAp+ApMAFBX8Hj6PR3G+uhrDFRXoeekltG3ZjOsbN6L7wH4M/O53GKEX97pc8NGGCckSW9ibdg9anBJqu0ZgpFvNM0ahf8yH75GU7siOx3aqIjHQS8+N0SiRGa/BhR4nLHpVhBSKfEN03erHny+3IinehBf+cQuqzzby8+1dfURuKSy5X1UMBkP4eM6cOfxdmdQuWrSIj7nd7mlAKquqqqTyVXtnvfCFhUkoRi4xswG7V7RIM9lMVvJJHoryM7Gr4hxcLisfO7m3EIcrm1HZ3DmNkYIo79RHFsfjbHMvlGozLTKBKSpJPhUQ3WRvmlpwO1mE1WCGygMk2pxIcHjhlfzBzSDbQ2Jb2C56Bwfhra2F40wtFxHRaMK899+nU/LzGGAvnR+ARSUTNDVaBTVRMI6AO3VjhMCRkGPRUQusutuABbFqDsaJ63akmtQEZhSf5xx1wWTU4eBPfoDBYQeSE818fOV9i/HZpVYcPPQeLPHmWQGZmJgYPmasZGXt2rUcTFaiyVeJBJszMgxi7uxZxFjJrn/tzBnef5MA6iwp4uCFyrjVhieXp6H5wIYw61ip2FUIjcYc7oeO227a2DKjeG0GFib74LPZoVf58NTKuSSiAkr/9CaeeMSFFQeWYsOPv4XCvVl44GdLsbVoMU5mmcLsCrUBWnneRlYa81qHJzHy983UJzBvOTy8ppvV/Nz+2j581GwjGZav27AwBp/dHsUgXcuY1TLgxns0N/y9LjdMhmisJuD+dkMB1j24jJ7jx5vvnsLT+98gJ8cHg147q/XNysoCcziHhoY4C1NTU7F582Y0NjZikDZmXFzcdGkt6f8IxReO/KWKKDAsS4P29EDZOVhJsqqDgC6NMeOSzQrzc+Uhr5SDvPHwOd4/vHF5WFYL0mL48fee/wBHP2lGkl6Dcy+vwVu70nHhYB7WLJmDX/ypFDsbf42erBTZmwPRkfTVRTJXnx2Ln27PnQCSFpm1UhA8KeDnAPI2OM6cCCnoxLzfYkP3qA/dTh/ujPuxxKJF7e0x1BIbB91+LErUYoDA23rsBk5ccyCRGHu224meMT+fGyrxsUb09VtBHiyy1/4DOm7ewcjoOF58vRz6aDUSyGP1zeCxzlSYnLa3t8NqtUKtVnM2LliwALWkLIyJbA00Gs1kaaVJQjD8mOa87H7uMT722LrdMzyOFq9BRrKPQMspeZsDU09AHn1ug7yLXzmKtANlKNtWyEF+tvwcHny1kh8XZBbBQvawzya7+MMuLX7063r85vhlFORasH/7CtouEk5f/xzPf/IykJFI8ubjVl3wqYJSSrbTEwi/ul+SJTUEaESowVuOHXUiGXnJ6oVRLTP50XkGREcp8M41GzpcPjycZICOJPdfzvXhf0a8+GGWnhwfAUdJVtvo/IhnAphAQOJ2Uh2lQrROgzlJsQRmHwFsQrRWQ8wOzJoljG03b97kjMzIyMDWrVu5XaypqcGWLVsQGxsLo9E43dmZzY1n64Ey4Ha9XcP7DFAG4qGT5/BqzSUcenI5Dm3L5+dqyA4yUPPpelZiFR7oozSov+7Cq+XXcKN/lBZbgfmxKchIzyEL74JIjqboVxIkBCAtnAAVj4Ek0SMvZnCxQrLqj6wRUhsJJK097rj8vK4hG+ghKX2fgGL9VanRXEb/i5jH+o/ON5LDI6G8Ve6LX2LuEgg8jVqFnjvD8Hh9s7KLkxzA5GR88cUXOH78OO8zz5W998mTJ9HZ2Ul+g8jlNfK+XwlkKPzIzc2d4U0aJtlVJqche8ecmRCgBZnJxNInZfDoJTItMSSxlSh6uxL1nRNOj9c2iLlaN9bnxeMHaxfC5qAQgZ6aGpeMs1tK8XD8CkhjTlpYGiSAA4LMQ84yr2qatPpD8uqPlFm55dIaBHLzPSZIPgksuls334CaW04MkcyKBOg6Au6znjH0EBtTSMbvn6NDzQ0HOUh+PofNjSzs3g7nOCwJsrnout0fTkR8qY2aAWSz2Qyn0ymHg8HS3NzMEwHDw8Nhh2fGhMBfUljcyexjcQSQjH0hqXz7Inmml3oJOBsHtDAzDYe3FfDz5ec6Z/RaS/YU4KHcxYgzi/DZmzA8dAZdl3uQnLEJ8YYEnNj0Ov7mvT34uLcaUhTJip88WWJWIKAIpyZC3ioHjR1JEZmdCImNZGTx4jiUXbWjMM0IA8lqxXUHD+hXpuoRr1Xil239fLGfINBEan9P7BQ4FQU+V3aOJc4+pVKBzu4+PLWpgI9/WPM5OTi6aVmYyDJ1XKvVchvIWNfa2gqbzYaYmBhcvHiRn3e5XOHMzyQb+U2A3PfudU7I3btXhMeYPczJSkOaRYNtOZnYW7A0bP8YsCWVsrQeICbOFEduLfg2nIONuHz8aZhxBUrVGJRuEZ3XDiHlwT/CGJuOfy3Yi7r/uIIRkmGFjxYnwLIItKi+CSC5LQy24TWakqbjqa/gcS45M0uTNBwoJpvH2x3cS348w8gX+Xib3P/+PTFw+wI41j7C+0voO9lcbt/tTjz+yHIUrs6Fj+59b/YCUpRR2Kk6yeFhVU92U6OO4naUybXb4+XjLHUXWZhkqlQqDhh7z7a2Np4AuHr1aohE4ViTpVfZpvxGQL5UeYfHkCxLFxlDMi/1Ur0cLx44Ws9ldlvOBLAhtvZ+SWbHHRhFa/VOpBvPw2RmwTUF/14JmsEm9NfthmH9CdwTfzcs0YkYcXXCz9ItBKKKHB+fT86weP3+PkLMEo4jg6yMBDEEZIgJbOdXbUjD65eHUHumD0PjPs7wJqsb/1TXh3aKU1MMKiwjb/bDNjtsJKkatYC3Hkrhc/kmXrscP3tmEy43dWJJlhyCMafnk3cO4sKVNlTXX+FMHbQ64HJ7OaCW+Bjk52by8cgyb948XkdGRnifAUjrzG0jT3oEgWN2NDIXq4w0ebMpDMTcXBZLFn9lnpUlAcoigC3Kz+GMZACHEgSRcaTH3g+97xY0qhiMkI0SfGQH6T112lj4XbcheEcxLkbD5RylhVaRrEaRnfSSp+oPhxIdbvezGqWyjEAyRUrWVCBd4+PSRbf79KaQTSL79/cUxtxf0SknSlmsfMUatmHLLDouq0eJrfPj1PjNymSYVBPuhdmkD4cgpz+7ircqqqEimd3+2Cqs/OtvIS87I3zt6JiLJxkYCMyeNkaYGZ5YINtYVVUVls6ysjJuGxn7WDl16hQHmkkua0MAh4H8lb0G+0wFM4PX0BBeBQZiza+2TEqaJ0eAGQpBJuUOYyZinpzkGHJyrNOeoY2ZB3XCGowOV0Cp0/HQQylEwT+ugHrOOrKLenz4+cfosfdCMJDdYZkZryh7qpKcXdnZ1VXBcg4/TkwUF2k0+00KxaNmhSJPIQiT/rLoaGv7/BeDgw+9HDGWpFOh5ckM/KFjBD+pv4MeZ5C19BOVMmiPLzDhlRXJaOwdxVxj9IR/8FE9zl9q5Uy7eq0LNvsoHz97oYXCEDOSE8xIosrklaX6HCNj6O4d4uHJ1MKcmhdeeAF2u5336+rqOOgh23jixAlcuXJlGiOFqX9jsfLpp59Kxz58jXutISCZB7Vq6WZsvdc0499Y1iDTmPe6sYAko09+cC8Ftb29cuBcUrQcyVoz8l+ZsJNmmhP+G2t0SLI1vg6l/QuI3jEEVBqoLQ9DsbgILT19+O4bu3BLHKDFoLCA7SOJZEZSQTpY86X+/TK9XvmEyfR30aK4MUWjyffpdM4NjY2RyaZpXgizsSPeAKxuOZwxq0Wyj360DpFtpsvvm6sPyypbwzXbn5eYTWS206jXUhCv4gLA7sOk1OX2kE1kGaEAv4Y5RVq6RqtR8+OP3vrnaX9jRXq1kvT1/0/8rwADAJ+LRelLmVNwAAAAAElFTkSuQmCC) !important;
+}
+#lleo_icons a:hover {
+    opacity: 1 !important;
+}
+#lleo_icons a.lleo_google     {background-position:-34px 0 !important;}
+#lleo_icons a.lleo_multitran  {background-position:-64px 0 !important;}
+#lleo_icons a.lleo_lingvo     {background-position:-51px 0 !important; width: 12px !important;}
+#lleo_icons a.lleo_dict       {background-position:-17px 0 !important;}
+#lleo_icons a.lleo_linguee    {background-position:-81px 0 !important;}
+#lleo_icons a.lleo_michaelis  {background-position:-98px 0 !important;}
+
+#lleo_dialog #lleo_contextContainer {
+    margin: 0 !important;
+    padding: 3px 15px 8px 10px !important;
+    background: #eee !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+    background: -moz-linear-gradient(-90deg, #fff, #eee) !important;
+    border-bottom: solid 1px #ddd !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    display: none !important;
+    overflow: hidden !important;
+}
+#lleo_dialog .lleo_has_context #lleo_contextContainer {
+    display: block !important;
+}
+#lleo_dialog #lleo_context {
+    color: #444 !important;
+    text-shadow: 1px 1px 0 #f4f4f4 !important;
+    line-height: 12px !important;
+    font-size: 11px !important;
+    margin-left: 2px !important;
+}
+#lleo_dialog #lleo_context b {
+    line-height: 12px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+}
+/*#lleo_dialog #lleo_gBrand {
+    color: #aaa !important;
+    font-size: 10px !important;
+    *//*padding-right: 52px !important;*//*
+    padding-bottom: 14px !important;
+    margin: -3px 4px 0 4px !important;
+    background: left bottom url(data:image/png;base64,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) no-repeat !important;
+    display: inline-block !important;
+    float: right !important;
+}
+#lleo_dialog #lleo_gBrand.hidden {
+    display: none !important;
+}*/
+#lleo_dialog #lleo_translateContextLink {
+    color: #444 !important;
+    text-shadow: 1px 1px 0 #f4f4f4 !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ddd)) !important;
+    background: -moz-linear-gradient(-90deg, #f4f4f4, #ddd) !important;
+    border: solid 1px !important;
+    box-shadow: 1px 1px 0 #f6f6f6 !important;
+    border-color: #999 #aaa #aaa #999 !important;
+    -moz-border-radius: 2px !important;
+	-webkit-border-radius: 2px !important;
+	border-radius: 2px !important;
+    padding: 0 3px !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+    margin: 1px 5px 0 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+#lleo_dialog #lleo_translateContextLink:hover {
+    background: #f8f8f8 !important;
+}
+#lleo_dialog #lleo_translateContextLink.hidden {
+    visibility: hidden !important;
+}
+
+#lleo_dialog #lleo_setTransForm {
+    display: block !important;
+    margin-top: 3px !important;
+    padding-top: 5px !important;
+    /* Set position and background because the form might be overlapped by an image when no translations */
+    position: relative !important;
+    background: #fff !important;
+    z-index: 10 !important;
+    padding-bottom: 10px !important;
+    padding-left: 16px !important;
+}
+#lleo_dialog .lleo-custom-translation {
+    padding: 4px 5px !important;
+    border: solid 1px #ddd !important;
+	border-radius: 2px !important;
+    width: 90% !important;
+    min-width: 270px !important;
+    background: -webkit-gradient(linear, 0 0, 0 20, from(#f1f1f1), to(#fff)) !important;
+    background: -moz-linear-gradient(-90deg, #f1f1f1, #fff) !important;
+	font: normal 13px Arial, Helvetica !important;
+	line-height: 15px !important;
+}
+#lleo_dialog .lleo-custom-translation:hover {
+    border: solid 1px #aaa !important;
+}
+#lleo_dialog .lleo-custom-translation:focus {
+    background: #FFFEC9 !important;
+}
+
+#lleo_dialog *.hidden {
+    display: none !important;
+}
+
+#lleo_dialog .infinitive{
+    color: #D56E00 !important;
+    text-decoration: none;
+    border-bottom: 1px dotted #D56E00 !important;
+}
+#lleo_dialog .infinitive:hover{
+    border: none !important;
+}
+
+#lleo_dialog .lleo_separator {
+    height: 1px !important;
+    background: #eee;
+    margin-top: 10px !important;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, #eee 8%, rgba(255,255,255,1) 80%) !important;
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+}
+#lleo_dialog #lleo_trans {
+    /*border-top: 1px solid #eeeeee !important;*/
+    padding: 5px 30px 0 14px !important;
+    zoom: 1;
+}
+
+#lleo_dialog .lleo_clearfix {
+	display: block !important;
+	clear: both !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	font-size: 0 !important;
+}
+
+
+#lleo_dialog #lleo_picOuter table {
+    width: 44px !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    vertical-align: middle !important;
+}
+
+#lleo_dialog #lleo_picOuter td {
+    width: 38px !important;
+    height: 38px !important;
+    /*border: 1px solid #eeeeee !important;*/
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+#lleo_dialog #lleo_picOuter td div {
+	height: 38px !important;
+	overflow: hidden !important;
+}
+
+#lleo_dialog .lleo_empty {
+    margin: 0 5px 7px !important;
+}
+
+#lleo_youtubeExportBtn {
+    margin-left: 10px;
+    height: 24px;
+}
+    #lleo_youtubeExportBtn i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: 0 0 url(https://d144fqpiyasmrr.cloudfront.net/plugins/all/images/i16.png) !important;
+    }
+    #lleo_youtubeExportBtn .yt-uix-button-content {
+        font-size: 12px;
+        line-height: 2px;
+    }
+
+
+/*** Parsed Lyrics Content *****************************/
+
+.lleo_lyrics tran {
+    background: transparent !important;
+    border-radius: 2px !important;
+    text-shadow: none !important;
+    cursor: pointer !important;
+}
+    .lleo_lyrics tran:hover {
+        color: #fff !important;
+        background: #C77213 !important;
+        -webkit-transition: all 0.1s !important;
+        -moz-transition: all 0.1s !important;
+        -ms-transition: all 0.1s !important;
+        -o-transition: all 0.1s !important;
+        transition: all 0.1s !important;
+    }
+
+.lleo_songName {
+    border: solid 1px #ffd47c;
+    background: #fff1c2;
+    border-radius: 2px;
+}
+
+.lleo_hidden_iframe {
+    visibility: hidden;
+}</style></head><body class="t-body" style="margin: 0px;" cz-shortcut-listen="true"><!--allrecords--><div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="441083" data-tilda-page-id="1881825" data-tilda-page-alias="metod-2" data-tilda-formskey="d8791aa2b2bea6010580d17ea444b0a2"><div id="rec37339394" class="r t-rec" style=" " data-animationappear="off" data-record-type="18"><!-- cover --><div class="t-cover" id="recorddiv37339394" bgimgfield="img" style="height:100vh; background-image:url(&#39;https://static.tildacdn.com/tild3462-6232-4065-b933-323530386232/-/resize/20x/c3322856334b481d8788.png&#39;);"><div class="t-cover__carrier loaded" id="coverCarry37339394" data-content-cover-id="37339394" data-content-cover-bg="https://static.tildacdn.com/tild3462-6232-4065-b933-323530386232/c3322856334b481d8788.png" data-content-cover-height="100vh" data-content-cover-parallax="fixed" style="background-image: url(&quot;https://static.tildacdn.com/tild3462-6232-4065-b933-323530386232/c3322856334b481d8788.png&quot;); height: 100vh;" src=""></div> <div class="t-cover__filter" style="height:100vh;background-image: -moz-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.70));background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.70));background-image: -o-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.70));background-image: -ms-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.70));background-image: linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.70));filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=&#39;#4c000000&#39;, endColorstr=&#39;#4c000000&#39;);"></div><div class="t-container"> <div class="t-col t-col_12 "><div class="t-cover__wrapper t-valign_middle" style="height:100vh;"> <div class="t001 t-align_center"> <div class="t001__wrapper" data-hook-content="covercontent"> <div class="t001__uptitle t-uptitle t-uptitle_sm" style="text-transform:uppercase;" field="subtitle">курс по react.js</div> <div class="t001__title t-title t-title_xl" style="" field="title">Введение в React.js</div> <div class="t001__descr t-descr t-descr_xl t001__descr_center" style="" field="descr">Добро пожаловать в интерактивное методическое пособие, созданное с любовью в школе LoftSchool.</div> <span class="space"></span> </div> </div> </div> </div> </div> <!-- arrow --> <div class="t-cover__arrow"><div class="t-cover__arrow-wrapper t-cover__arrow-wrapper_animated"><div class="t-cover__arrow_mobile"><svg class="t-cover__arrow-svg" style="fill:#ffffff;" x="0px" y="0px" width="38.417px" height="18.592px" viewBox="0 0 38.417 18.592"><g><path d="M19.208,18.592c-0.241,0-0.483-0.087-0.673-0.261L0.327,1.74c-0.408-0.372-0.438-1.004-0.066-1.413c0.372-0.409,1.004-0.439,1.413-0.066L19.208,16.24L36.743,0.261c0.411-0.372,1.042-0.342,1.413,0.066c0.372,0.408,0.343,1.041-0.065,1.413L19.881,18.332C19.691,18.505,19.449,18.592,19.208,18.592z"></path></g></svg></div></div></div> <!-- arrow --> </div> </div><div id="rec37347075" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; " data-animationappear="off" data-record-type="607"><!-- T607 --><div class="t607 t607__middle-pos" style=" margin-right:20px;"><ul class="t607__list"><li class="t607__list_item" style="padding:12.5px 0;"><a class="t-menu__link-item" href="http://react1.tilda.ws/metod-2#rec37339398"><div class="t607__tooltip t-descr t-descr_xs" style="background:#292929; line-height:2.5; border-radius:3px; color:#ffffff;font-size:14px;font-weight:600; right:33px;">Рендер react в DOM</div><div class="t607__dot" style=" border: 2px solid #dbdbdb; width:13px; height:13px; box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); "></div></a></li><li class="t607__list_item" style="padding:12.5px 0;"><a class="t-menu__link-item t-active" href="http://react1.tilda.ws/metod-2#rec37339408"><div class="t607__tooltip t-descr t-descr_xs" style="background:#292929; line-height:2.5; border-radius:3px; color:#ffffff;font-size:14px;font-weight:600; right:33px;">Концепция</div><div class="t607__dot" style=" border: 2px solid #dbdbdb; width:13px; height:13px; box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); "></div></a></li><li class="t607__list_item" style="padding:12.5px 0;"><a class="t-menu__link-item" href="http://react1.tilda.ws/metod-2#rec37339414"><div class="t607__tooltip t-descr t-descr_xs" style="background:#292929; line-height:2.5; border-radius:3px; color:#ffffff;font-size:14px;font-weight:600; right:33px;">Состояние компоненты</div><div class="t607__dot" style=" border: 2px solid #dbdbdb; width:13px; height:13px; box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); "></div></a></li><li class="t607__list_item" style="padding:12.5px 0;"><a class="t-menu__link-item" href="http://react1.tilda.ws/metod-2#rec37339419"><div class="t607__tooltip t-descr t-descr_xs" style="background:#292929; line-height:2.5; border-radius:3px; color:#ffffff;font-size:14px;font-weight:600; right:33px;">Children</div><div class="t607__dot" style=" border: 2px solid #dbdbdb; width:13px; height:13px; box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1); "></div></a></li></ul></div><style>#rec37347075 .t607__tooltip::after{
+border-left-color: #292929;
+}
+#rec37347075 .t-menu__link-item.t-active .t607__dot{
+background: #dbdbdb !important;opacity: 1 !important;
+}</style><script type="text/javascript"> $(document).ready(function() { setTimeout(function() { t607_init('37347075'); }, 100); });</script></div><div id="rec37339395" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_showed r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="396"><!-- T396 --><style>#rec37339395 .t396__artboard{height: 290px;background-color: #ffffff;}#rec37339395 .t396__filter{height: 290px;}#rec37339395 .t396__carrier{height: 290px;background-position: center center;background-attachment: scroll;background-size:cover;background-repeat:no-repeat;}@media screen and (max-width: 1199px){#rec37339395 .t396__artboard{}#rec37339395 .t396__filter{}#rec37339395 .t396__carrier{background-attachment:scroll;}}@media screen and (max-width: 959px){#rec37339395 .t396__artboard{height: 520px;}#rec37339395 .t396__filter{height: 520px;}#rec37339395 .t396__carrier{height: 520px;}}@media screen and (max-width: 639px){#rec37339395 .t396__artboard{height: 420px;}#rec37339395 .t396__filter{height: 420px;}#rec37339395 .t396__carrier{height: 420px;}}@media screen and (max-width: 479px){#rec37339395 .t396__artboard{height: 330px;}#rec37339395 .t396__filter{height: 330px;}#rec37339395 .t396__carrier{height: 330px;}}#rec37339395 .tn-elem[data-elem-id="1470210033144"]{z-index:4;top: calc(145px - 0px + 3px);left: calc(50% - 180px + 0px);width:360px;}#rec37339395 .tn-elem[data-elem-id="1470210033144"] .tn-atom{background-position:center center;border-color:transparent;border-style:solid;}@media screen and (max-width: 1199px){}@media screen and (max-width: 959px){}@media screen and (max-width: 639px){}@media screen and (max-width: 479px){}</style> <div class="t396"><div class="t396__artboard rendered" data-artboard-recid="37339395" data-artboard-height="290" data-artboard-height-res-640="520" data-artboard-height-res-480="420" data-artboard-height-res-320="330" data-artboard-height_vh="" data-artboard-valign="center" data-artboard-proxy-min-offset-top="0" data-artboard-proxy-min-height="290" data-artboard-proxy-max-height="290"> <div class="t396__carrier" data-artboard-recid="37339395"></div> <div class="t396__filter" data-artboard-recid="37339395"></div> <div class="t396__elem tn-elem tn-elem__373393951470210033144" data-elem-id="1470210033144" data-elem-type="image" data-field-top-value="3" data-field-top-res-960-value="0.5" data-field-top-res-640-value="-10" data-field-left-value="0" data-field-left-res-960-value="0" data-field-left-res-640-value="-1.5" data-field-width-value="360" data-field-width-res-960-value="900" data-field-width-res-640-value="59" data-field-axisy-value="center" data-field-axisx-value="center" data-field-container-value="window" data-field-topunits-value="" data-field-leftunits-value="" data-field-heightunits-value="" data-field-widthunits-value="" data-field-widthunits-res-640-value="%" data-fields="img,width,filewidth,fileheight,top,left,container,axisx,axisy,widthunits,leftunits,topunits" style="left: 612.5px; top: 64px; width: 360px;"> <div class="tn-atom"> <img class="tn-atom__img t-img loaded" data-original="https://static.tildacdn.com/tild3730-3332-4631-b563-303538383163/reactlogo.png" imgfield="tn_img_1470210033144" src="./Введение в React.js_files/reactlogo.png"> </div> </div> </div> </div> <script>$( document ).ready(function() { t396_init('37339395');
+});</script><!-- /T396 --></div><div id="rec37339396" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px;background-color:#f2f2f2; " data-record-type="373" data-bg-color="#f2f2f2" data-animationappear="off"><!-- T373 --><div class="t373"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t373__wrapper"> <div class="t373__col"> <div class="t373__circle " style="border: 0px solid #000; "> <div class="t373__title t-title" field="number" style="">/</div> </div> </div> <div class="t373__col"> <div class="t373__text t-text t-text_md" field="text"><strong>Оглавление<br></strong><br><ol><li><a href="http://react1.tilda.ws/metod-2#rec37339398" style="text-decoration: none;border-bottom: 1px solid;box-shadow: inset 0px -1px 0px 0px;-webkit-box-shadow: inset 0px -1px 0px 0px;-moz-box-shadow: inset 0px -1px 0px 0px;">Рендер react в DOM</a></li><li><a href="http://react1.tilda.ws/metod-2#rec37339408" style="text-decoration: none;border-bottom: 1px solid;box-shadow: inset 0px -1px 0px 0px;-webkit-box-shadow: inset 0px -1px 0px 0px;-moz-box-shadow: inset 0px -1px 0px 0px;">Концепции react.js</a></li><li><a href="http://react1.tilda.ws/metod-2#rec37339414" style="text-decoration: none;border-bottom: 1px solid;box-shadow: inset 0px -1px 0px 0px;-webkit-box-shadow: inset 0px -1px 0px 0px;-moz-box-shadow: inset 0px -1px 0px 0px;">Состояние компоненты</a></li><li><a href="http://react1.tilda.ws/metod-2#rec37339419" style="text-decoration: none;border-bottom: 1px solid;box-shadow: inset 0px -1px 0px 0px;-webkit-box-shadow: inset 0px -1px 0px 0px;-moz-box-shadow: inset 0px -1px 0px 0px;">Children</a></li></ol></div> </div> </div> </div> </div></div></div><div id="rec37339397" class="r t-rec t-rec_pt_30 t-rec_pb_60 r_anim r_showed" style="padding-top:30px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> В 2013 Facebook представила библиотеку react.js. React.js помогает создавать масштабируемые веб-приложения на JavaScript. В основе реакта лежат простые концепции, вместе они создают новый удобный подход, декларативного описания пользовательского интерфейса. <br></div></div></div></div></div><div id="rec37339398" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_anim r_showed" style="padding-top:0px;padding-bottom:0px; " data-record-type="676"><!-- T676 --><div class="t676"> <div class="t-container"> <div class="t-row"> <div class="t-col t-col_8 t-prefix_2"> <svg class="t676__divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> <div class="t676__text-impact t-text-impact t-text-impact_md" field="text"><strong>1.</strong> Рендер react в DOM</div> <svg class="t676__divider t676__divider_rotate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> </div> </div> </div></div></div><div id="rec37339399" class="r t-rec t-rec_pt_60 t-rec_pb_0 r_anim r_showed" style="padding-top:60px;padding-bottom:0px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Чтобы добавить код на реакт в DOM, нужно воспользоваться простой функцией <span style="font-weight: 400;">ReactDOM.render</span>. <br><br> Если посмотреть файл <span style="font-weight: 500;">src/index.js</span> в новом проекте <span style="font-weight: 500;">create-react-app</span>, можно увидеть команду: <br></div></div></div></div></div><div id="rec37405417" class="r t-rec t-rec_pt_45 t-rec_pb_0" style="padding-top:45px;padding-bottom:0px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="auto hljs coffeescript"> ReactDOM.render(&lt;App /&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'root'</span>))</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37405437" class="r t-rec t-rec_pt_45 t-rec_pb_60 r_anim r_showed" style="padding-top:45px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Таким образом происходит добавление всего приложения на реакте в дерево DOM с id root. После этого приложение на реакт начинает отвечать за все содержимое в этом теге. Если там было что-то, реакт очистит содержимое и начнет заполнять его теми тегами, которые вы опишете в своем приложении.<br><br>Содержимое этого тега будет представлять из себя ваше приложение, оно может быть как spa, с описанием роутинга, так и простым виджетом на вашем сайте, умной формой или калькулятором цен.<br><br>С помощью ReactDOM.render можно подключить несколько приложений на вашей странице, и каждое из них будет работать в своем изолированном теге, со своей логикой, без конфликтов с другими приложениями на странице.<br></div></div></div></div></div><div id="rec37339408" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_anim r_showed" style="padding-top:60px;padding-bottom:60px; " data-record-type="676"><!-- T676 --><div class="t676"> <div class="t-container"> <div class="t-row"> <div class="t-col t-col_8 t-prefix_2"> <svg class="t676__divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> <div class="t676__text-impact t-text-impact t-text-impact_md" field="text"><strong>2.</strong> Концепции react.js</div> <svg class="t676__divider t676__divider_rotate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> </div> </div> </div></div></div><div id="rec37339403" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_anim r_showed" style="padding-top:0px;padding-bottom:0px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Легче всего понять реакт, изучив базовые концепции, лежащие в его основе. <br><strong>Их всего 3</strong>: virtual DOM, компонентная разработка и jsx. <br></div></div></div></div></div><div id="rec37342073" class="r t-rec t-rec_pt_60 t-rec_pb_30 r_anim r_showed" style="padding-top:60px;padding-bottom:30px; " data-record-type="373"><!-- T373 --><div class="t373"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t373__wrapper"> <div class="t373__col"> <div class="t373__circle " style="border: 0px solid #000; "> <div class="t373__title t-title" field="number" style="">1</div> </div> </div> <div class="t373__col"> <div class="t373__text t-text t-text_md" field="text">Virtual DOM</div> </div> </div> </div> </div></div></div><div id="rec37342107" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_anim r_showed" style="padding-top:0px;padding-bottom:0px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Virtual DOM — это модель DOM, описываемая с помощью простых объектов js. <br><br> Одной из причин внедрения virtual dom в react стало то, что работа с обычном DOM является достаточно медленной. Если вы попробуете сдвинуть тысячи div на 5 пикселей влево, вы увидите провисание fps в браузере. <br><br> Второй причиной является то, как реакт работает с изменениями ui. В классической работе jquery, к началу работы скрипта мы уже имеем наполненное DOM дерево. Если мы хотим как-то повлиять на внешний вид, мы или добавляем, или удаляем, или меняем теги в дереве. <br><br>В случае реакта, мы описываем внешний вид компоненты (кнопка, отдельное меню или целая страница) с помощью jsx-тегов. Когда такая часть страницы должна быть выведена на экран, реакт строит virtual dom. После построения virtual dom компоненты, реакт подключает ее к общему дереву virtual dom всей страницы, и сравнивает то, что изменилось. <br><br>Если мы первый раз выводим компоненту на экран, реакт с помощью простых операций <em>document.createElement, document.createTextNode,</em> и тд. добавляет компонент в реальный DOM. Если же мы изменили данные, и нам нужно показать компонент с новыми измененными данными, реакт опять строит virtual dom компоненты с новыми данными и проводит сравнение версий virtual dom, прежней с текущей. <br><br>Снова происходит процесс выявления изменений, и в данном случае к dom применяются только те изменения, которые были выявлены при изменении внешнего вида, который поменялся при изменении данных. <br></div></div></div></div></div><div id="rec37342546" class="r t-rec t-rec_pt_75 t-rec_pb_75 r_anim r_showed" style="padding-top:75px;padding-bottom:75px; " data-record-type="3"><!-- T107 --><div class="t107"> <div class="t-align_center" itemscope="" itemtype="http://schema.org/ImageObject"><meta itemprop="image" content="https://static.tildacdn.com/tild3932-3166-4233-a230-353332316436/image3.png"> <img src="./Введение в React.js_files/image3.png" data-original="https://static.tildacdn.com/tild3932-3166-4233-a230-353332316436/image3.png" data-zoomable="yes" data-img-zoom-url="https://static.tildacdn.com/tild3932-3166-4233-a230-353332316436/image3.png" class="t107__width t-width t-width_6 t-img t-zoomable loaded" imgfield="img"> </div> </div></div><div id="rec37342821" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_anim r_showed" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Virtual DOM создает абстракцию над созданием и обновлением тегов в реальном DOM, с реактом вся работа сводится к работе с jsx и логикой, описанной в компонентах.<br></div></div></div></div></div><div id="rec37342940" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_anim r_showed" style="padding-top:0px;padding-bottom:0px; " data-record-type="373"><!-- T373 --><div class="t373"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t373__wrapper"> <div class="t373__col"> <div class="t373__circle " style="border: 0px solid #000; "> <div class="t373__title t-title" field="number" style="">2</div> </div> </div> <div class="t373__col"> <div class="t373__text t-text t-text_md" field="text">Компонентная разработка</div> </div> </div> </div> </div></div></div><div id="rec37342960" class="r t-rec t-rec_pt_30 t-rec_pb_60 r_anim r_showed" style="padding-top:30px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "><strong>Компонентная разработка</strong> — это способ композиции кода в мире реакт. Компонентой называется класс или функция, которая описывает элемент или группу элементов, связанных визуально или логически.<br></div></div></div></div></div><div id="rec37343002" class="r t-rec t-rec_pt_30 t-rec_pb_30 r_anim r_showed" style="padding-top:30px;padding-bottom:30px; " data-record-type="3"><!-- T107 --><div class="t107"> <div class="t-align_center" itemscope="" itemtype="http://schema.org/ImageObject"><meta itemprop="image" content="https://static.tildacdn.com/tild3231-3333-4265-b231-616466373430/image2.png"> <img src="./Введение в React.js_files/image2.png" data-original="https://static.tildacdn.com/tild3231-3333-4265-b231-616466373430/image2.png" data-zoomable="yes" data-img-zoom-url="https://static.tildacdn.com/tild3231-3333-4265-b231-616466373430/image2.png" class="t107__width t-width t-width_6 t-img t-zoomable loaded" imgfield="img"> </div> </div></div><div id="rec37343111" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_anim r_showed" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">На данный момент есть 3 основных способа создания компоненты:<br></div></div></div></div></div><div id="rec37343071" class="r t-rec t-rec_pt_0 t-rec_pb_30" style="padding-top:0px;padding-bottom:30px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs"><span class="hljs-number">1.</span> Расширить класс Component
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+ render() {
+   <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>;</span>
+ }
+}
+
+<span class="hljs-number">2.</span> Расширить класс PureComponent
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">PureComponent</span> </span>{
+ render() {
+   <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>;</span>
+ }
+}
+
+<span class="hljs-number">3.</span> Написать функцию возвращающую jsx
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">HelloWorld</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+}
+
+
+//Также, вы можете увидеть старый способ, который уже не пользуется популярностью
+
+React.createClass({
+ render: function() {
+   return <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>Hello!<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>;</span>
+ }
+});
+</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37343380" class="r t-rec t-rec_pt_45 t-rec_pb_60 r_anim r_showed" style="padding-top:45px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Компоненты содержат вёрстку в jsx, логику работы компоненты и, как правило, импортируют стили самой компоненты, это может быть как css, так и одна из реализаций css-in-js. <br></div></div></div></div></div><div id="rec37343387" class="r t-rec t-rec_pt_15 t-rec_pb_30 r_anim r_showed" style="padding-top:15px;padding-bottom:30px; " data-record-type="3"><!-- T107 --><div class="t107"> <div class="t-align_center" itemscope="" itemtype="http://schema.org/ImageObject"><meta itemprop="image" content="https://static.tildacdn.com/tild6137-6462-4031-a438-323961376536/image4.png"> <img src="./Введение в React.js_files/image4.png" data-original="https://static.tildacdn.com/tild6137-6462-4031-a438-323961376536/image4.png" class="t107__width t-width t-width_6 t-img loaded" imgfield="img"> </div> </div></div><div id="rec37343496" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_anim r_showed" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Компоненты могут содержать в себе другие компоненты. Компонент списка комментариев будет возвращать контейнер, например &lt;ul&gt;&lt;/ul&gt;, в котором будут помещены компоненты комментариев, которые в свою очередь могут вернуть или просто jsx, или другие компоненты. <br><br> Компоненты получают данные через <em>props.</em> Props — это атрибуты тега компоненты, например: <br></div></div></div></div></div><div id="rec37343560" class="r t-rec t-rec_pt_15 t-rec_pb_90" style="padding-top:15px;padding-bottom:90px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Comment</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+ render() {
+   <span class="hljs-keyword">const</span> {author, text} = props;
+   <span class="hljs-keyword">return</span> (
+     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">h4</span>&gt;</span>{author}<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   )</span>;
+ }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommentList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+ render() {
+   <span class="hljs-keyword">const</span> comments = [
+     {text: <span class="hljs-string">'hello!'</span>, author: <span class="hljs-string">'Bill'</span>},
+     {text: <span class="hljs-string">'How are you?'</span>, author: <span class="hljs-string">'Mary'</span>}
+   ];
+   <span class="hljs-keyword">return</span> (
+     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span>&gt;</span>
+       {comments.map(comment =&gt; {
+         return <span class="hljs-tag">&lt;<span class="hljs-title">Comment</span> <span class="hljs-attribute">author</span>=<span class="hljs-value">{comment.author}</span> <span class="hljs-attribute">text</span>=<span class="hljs-value">{comment.text}</span> /&gt;</span>;</span>
+       })}
+     &lt;<span class="hljs-regexp">/ul&gt;
+   );
+ }
+}
+</span></code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37344241" class="r t-rec t-rec_pt_30 t-rec_pb_60 r_hidden r_anim" style="padding-top:30px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Компонент CommentList возвращает список компонент комментария, передавая ему через атрибуты тэга данные. Эти данные компонент комментариев и получает через this.props. <br><br> В случае, когда мы используем функцию, а не класс, props передается аргументом функции: <br></div></div></div></div></div><div id="rec37344088" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Comment</span>(<span class="hljs-params">props</span>) </span>{
+ <span class="hljs-keyword">const</span> {author, text} = <span class="hljs-keyword">this</span>.props;
+ <span class="hljs-keyword">return</span> (
+   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">h4</span>&gt;</span>{author}<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+ )</span>;
+}
+
+<span class="hljs-comment">//Или если совсем коротко:</span>
+
+<span class="hljs-keyword">const</span> Comment = ({author, text}) =&gt; (
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">h4</span>&gt;</span>{author}<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+)</span>;
+</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37344381" class="r t-rec t-rec_pt_60 t-rec_pb_0 r_hidden r_anim" style="padding-top:60px;padding-bottom:0px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Компоненты можно и даже нужно использовать много раз, в случае комментария мы используем один и тот же компонент в списке комментариев. Можно упростить себе жизнь, создав на проект общий набор ui компонент, таких как кнопки, инпуты и тд, и использовать их везде в проекте, чтобы сохранить общий стиль проекта и не повторять оформление стиля. <br><br> Компоненты можно представить чистой функцией от props. <br></div></div></div></div></div><div id="rec37344418" class="r t-rec t-rec_pt_45 t-rec_pb_30 r_hidden r_anim" style="padding-top:45px;padding-bottom:30px; " data-record-type="248"><!-- T220 --><div class="t220"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"> <div class="t220__textwrapper" style="background-color:#f5f5f5;"> <div style=""> <div field="text" class="t220__text t-text t-text_md ">Чистая функция в программировании — это такая функция, которая вычисляет результат только в зависимости от переданных ей аргументов. Такая функция не использует внешние (глобальные) переменные, не изменяет свои аргументы и всегда возвращает один и тот же результат от одних и тех же аргументов. <br></div> </div> </div></div></div></div></div><div id="rec37344762" class="r t-rec t-rec_pt_15 t-rec_pb_60 r_hidden r_anim" style="padding-top:15px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Слово Pure в PureComponent именно это и означает: если props остались прежними, компонента не будет заново создавать свой virtual dom слепок, и реакт будет использовать прежний слепок. <br></div></div></div></div></div><div id="rec37344834" class="r t-rec t-rec_pt_15 t-rec_pb_15 r_hidden r_anim" style="padding-top:15px;padding-bottom:15px; " data-record-type="373"><!-- T373 --><div class="t373"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t373__wrapper"> <div class="t373__col"> <div class="t373__circle " style="border: 0px solid #000; "> <div class="t373__title t-title" field="number" style="">3</div> </div> </div> <div class="t373__col"> <div class="t373__text t-text t-text_md" field="text">JSX</div> </div> </div> </div> </div></div></div><div id="rec37344877" class="r t-rec t-rec_pt_30 t-rec_pb_60 r_hidden r_anim" style="padding-top:30px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> JSX — это способ описать html-вёрстку в js. JSX не поддерживается браузерами, это надстройки над синтаксисом js. Чтобы jsx работал, нужен babel, и его правильная настройка. <br><br> После того, как babel обработает ваш код, на выходе получается функция React.createElement(). <br></div></div></div></div></div><div id="rec37344884" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_hidden r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="3"><!-- T107 --><div class="t107"> <div class="t-align_center" itemscope="" itemtype="http://schema.org/ImageObject"><meta itemprop="image" content="https://static.tildacdn.com/tild3939-6530-4731-b965-616235393161/image1.png"> <img src="./Введение в React.js_files/image1.png" data-original="https://static.tildacdn.com/tild3939-6530-4731-b965-616235393161/image1.png" class="t107__width t-width t-width_6 t-img" imgfield="img"> </div> </div></div><div id="rec37344957" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "><div style="text-align:left;" data-customstyle="yes">Тег <em></em><em><span data-redactor-tag="span" style="font-weight: 500;">&lt;div/&gt;</span></em> в jsx превратиться в конструкцию <strong></strong><strong><span data-redactor-tag="span" style="font-weight: 500;">React.createElement("div", null)</span></strong>. JSX — это синтаксический сахар, который помогает описывать вёрстку в привычном для нас виде, но никто не запрещает писать React.createElement, правда этого никто не делает :-) <br><br> У JSX есть ограничения, если мы хотим присвоить класс тегу, то должны писать className, вместо class, так как class — зарезервированное слово в js для создания классов. <br><br> Для того чтобы вычислить что-нибудь прямо в jsx или использовать значение из переменной, используются фигурные скобки <span style="font-weight: 500;">&lt;p&gt;{1 + 1}&lt;/p&gt;</span>, их можно использовать и для присваивания значений атрибутам тега <br>&lt;input value={1000} /&gt;. <br><br>В фигурные скобки можно помещать значения и выражения, но нельзя помещать циклы или условия. Чтобы лучше понять это, нужно помнить, что весь jsx превращается в вызовы функций React.createElement, а значения атрибуты помещаются в аргументы этой функции. <br><br>Аргументами функции как раз и могут служить значения и выражения, но не циклы или условия — &lt;input value={1000}/&gt; =&gt; React.createElement("input", { value: 1000 }). <br><br>Можно использовать тернарный оператор, и это самый простой способ ветвления кода в jsx, например: <br></div></div></div></div></div></div><div id="rec37345569" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs">&lt;div&gt;
+{<span class="hljs-number">1</span> == <span class="hljs-number">1</span>
+ ? <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>one equal one!<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+ : <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>one not equal one!<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+}
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+ 
+// Превращается в 
+
+React.createElement(
+ "div",
+ null,
+ 1 == 1 ? React.createElement(
+   "p",
+   null,
+   "one equal one!"
+ ) : React.createElement(
+   "p",
+   null,
+   "one not equal one!"
+ )
+)
+</span></code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37345628" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Название компонент в jsx всегда должно начинаться с большой буквы, если у нас есть компонента P, в вёрстку попадет содержимое компоненты P, а если будет маленькая p, у нас в вёрстке появится параграф <span style="font-weight: 500;">&lt;p&gt;&lt;/p&gt;</span>. <br><br> И еще одно: если мы передадим компоненте атрибут без значения, то компонента получит этот атрибут со значением true. <br></div></div></div></div></div><div id="rec37339414" class="r t-rec t-rec_pt_60 t-rec_pb_0 r_hidden r_anim" style="padding-top:60px;padding-bottom:0px; " data-record-type="676"><!-- T676 --><div class="t676"> <div class="t-container"> <div class="t-row"> <div class="t-col t-col_8 t-prefix_2"> <svg class="t676__divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> <div class="t676__text-impact t-text-impact t-text-impact_md" field="text"><strong>3.</strong>Состояние компоненты</div> <svg class="t676__divider t676__divider_rotate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> </div> </div> </div></div></div><div id="rec37339415" class="r t-rec t-rec_pt_60 t-rec_pb_45 r_hidden r_anim" style="padding-top:60px;padding-bottom:45px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Помимо props, у компоненты есть свое состояние. Состояние — это простой объект. Состояние можно обновлять, и каждое обновление состояния вызывает новый render компоненты. Доступ к state происходит с помощью this.state. Состояние компоненты можно получить в любой функции компоненты. Изменить состояние можно с помощью функции this.setState. Также можно инициализировать состояние в конструкторе. <br></div></div></div></div></div><div id="rec37339416" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_hidden r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__descr t-descr t-descr_xs" field="descr">this.setState можно использовать двумя способами:</div> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="auto hljs cpp">Передать объект — <span class="hljs-keyword">this</span>.setState({a: <span class="hljs-number">1</span>})
+Передать функцию — <span class="hljs-keyword">this</span>.setState(state =&gt; ({...state, a: <span class="hljs-number">1</span>}))
+
+</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37339417" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">В первом случае, если у нас есть состояние {a: 1, b: 2} и мы вызовем this.setState({a: 2}), то состояние станет {a: 2, b: 2}, а если состоянием будет объект {a: {b: 1, c: 2}} и вызовем this.setState({a: b 2}), у нас получится {a: {b: 2}}. <br><br> setState при передачи работает таким образом: заменяются ключи 1ой уровни вложенности на ключи state объекта. Если вы передаете ключём еще один объект, то он полностью заменить объект находящийся в state. <br><br>setState не изменяет состояние сразу же, react может задержать выполнение setState, чтобы обновить состояние сразу нескольких компонент одним проходом. Если вы посмотрите значение переменной this.state сразу после setState, то не увидете там изменений, которые вы передали. Если вам нужно иметь значение состояния сразу же после присваивания, вам нужно использовать второй аргумент setState: <br></div></div></div></div></div><div id="rec37339418" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_hidden r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="auto hljs cpp">console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">this</span>.state); <span class="hljs-comment">// {a: 1}</span>
+<span class="hljs-keyword">this</span>.setState({a: <span class="hljs-number">2</span>}, () =&gt; {
+ console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">this</span>.state); <span class="hljs-comment">// {a: 2}</span>
+});</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37345940" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md ">Если нужно сделать несколько изменений подряд, то лучше передать функцию, так как при вызове функции в нее передается актуальное состояние состояния. <br><br> У функциональных компонент, созданных лишь одной функцией, нет состояния и функций жизненного цикла. <br></div></div></div></div></div><div id="rec37339419" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_hidden r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="676"><!-- T676 --><div class="t676"> <div class="t-container"> <div class="t-row"> <div class="t-col t-col_8 t-prefix_2"> <svg class="t676__divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> <div class="t676__text-impact t-text-impact t-text-impact_md" field="text"><strong>4. </strong>Children</div> <svg class="t676__divider t676__divider_rotate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 12"><path d="M62.3 12L50 3.5 37.7 12 25.4 3.5 13.1 12 0 2.9 1.7.6l11.4 7.9L25.4 0l12.3 8.5L50 0l12.3 8.5L74.6 0l12.3 8.5L98.3.6l1.7 2.3L86.9 12 74.6 3.5"></path></svg> </div> </div> </div></div></div><div id="rec37339421" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Компоненты становятся простыми тегами в мире реакта, а в каждый тег можно поместить потомков — &lt;Parent&gt;&lt;Children /&gt;&lt;/Parent&gt;. <br><br> Для работы с детьми у компоненты есть свойство props.children. Реакт передаёт всех детей этой переменной, ребёнка можно разместить в том месте, где это удобно. Разместить только при условии или вовсе не работать с детьми. В таком случае, что бы вы не вложили в тег компонента, ничего не отразится в дереве DOM. <br><br> В случае с Parent, его код мог бы выглядеть так <br></div></div></div></div></div><div id="rec37346004" class="r t-rec t-rec_pt_0 t-rec_pb_0 r_hidden r_anim" style="padding-top:0px;padding-bottom:0px; " data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs"><span class="hljs-keyword">const</span> Parent = props =&gt; (
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Hello! I am Parent!<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+   {props.children}
+ <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+)</span>;</code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37346084" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Любой ребенок, переданный в компонент Parent, будет размещён в нем после параграфа. Если же не передать ребенка, он просто не будет отражён у родителя. <br><br> Для работы со списками детей у реакта есть функция помощник React.Children.map, и если вы хотите обернуть каждого ребенка в дополнительный тег, она в этом поможет: <br></div></div></div></div></div><div id="rec37346120" class="r t-rec t-rec_pt_0 t-rec_pb_0" style="padding-top:0px;padding-bottom:0px; " data-animationappear="off" data-record-type="285"><!-- t264 --><div class="t264"> <div class="t-container"> <div class="t-col t-col_8 t-prefix_2"> <div class="t264__wrapper t-text t-text_xs" style="border: 0px solid #f8f8f8;"><pre><code class="javascript hljs"><span class="hljs-keyword">const</span> Parent = props =&gt; (
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Parent<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+   {React.Children.map(props.children, child =&gt; <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{child}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>)</span>}
+ &lt;<span class="hljs-regexp">/div&gt;
+);</span></code></pre> </div> </div> </div></div> <script type="text/javascript"> $(document).ready(function(){	hljs.initHighlightingOnLoad(); }); </script> <style type="text/css"> .t264 .hljs { background-color: ; }</style> </div><div id="rec37346176" class="r t-rec t-rec_pt_60 t-rec_pb_60 r_hidden r_anim" style="padding-top:60px;padding-bottom:60px; " data-record-type="106"><!-- T004 --><div class="t004"><div class="t-container "> <div class="t-col t-col_8 t-prefix_2"><div field="text" class="t-text t-text_md "> Если вы передадите только одного ребёнка, ничего страшного, эта функция поймёт, что работает не с массивом детей, и выведет ребёнка, как будто пришел массив с одним элементом. <br></div></div></div></div></div><div id="rec37339446" class="r t-rec t-rec_pt_60 t-rec_pb_60" style="padding-top:60px;padding-bottom:60px;background-color:#111111; " data-record-type="144" data-bg-color="#111111" data-animationappear="off"><!-- T134 --><div class="t134"><div class="t-container"><div class="t-col t-col_10 t-prefix_1"> <a href="http://react1.tilda.ws/loftschool.com" style=""> <img src="./Введение в React.js_files/LS_width_white_circl.png" class="t134__img" imgfield="img"> </a> <div class="t134__descr" field="descr" style="color:#ffffff;"><br>© От команды LoftSchool с любовью. <br>Мы вложили в эту страницу душу, поэтому, пожалуйста, не крадите и не копируйте ее.<br></div></div></div></div></div></div><!--/allrecords--><!-- Tilda copyright. Don't remove this line --><div class="t-tildalabel " id="tildacopy" data-tilda-sign="441083#1881825"><a href="https://tilda.cc/?upm=441083" class="t-tildalabel__link"><div class="t-tildalabel__wrapper"><div class="t-tildalabel__txtleft">Made on </div><div class="t-tildalabel__wrapimg"><img src="./Введение в React.js_files/tildacopy.png" class="t-tildalabel__img"></div><div class="t-tildalabel__txtright">Tilda</div></div></a></div><!-- Stat --><script> (function(d,w,k){w.setTimeout(function(){var n=d.getElementsByTagName("script")[0],s=d.createElement("script"),f=function(){n.parentNode.insertBefore(s,n)};s.type="text/javascript";s.id='tildastatscript';s.key=k;s.async=!0;s.src=(d.location.protocol=="https:"?"https:":"http:")+"//stat.tildacdn.com/js/tildastat.min.js";if(w.opera=="[object Opera]"){d.addEventListener("DOMContentLoaded",f,!1)}else{f()}},2000)})(document,window,'5725ccd9e33aadf9dc80c76ad185388d'); if (! window.mainTracker) { window.mainTracker = 'tilda'; } </script><div class="t-zoomer__wrapper">      <div class="t-zoomer__container">      </div>      <div class="t-zoomer__bg"></div>      <div class="t-zoomer__close">        <div class="t-zoomer__close-line t-zoomer__close-line-first"></div>        <div class="t-zoomer__close-line t-zoomer__close-line-second"></div>      </div>    </div></body></html>

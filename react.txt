@@ -1,0 +1,8 @@
+установить react глобально
+  npm install -g create-react-app
+
+установить модуль в папку lesson-1
+  create-ract-app lesson-1
+
+включить сервер
+  yarn start
