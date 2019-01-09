@@ -1,0 +1,58 @@
+constructor вызывается при инициализации компоненты
+componentDidMount 
+    вызывается сразу же после вызова функции render и монтировании компонента к DOM. Если вам нужно запустить таймеры, получить данные от сервера или получить значения от DOM, например, getBoundingClientRect, эта функция — идеальное место для этого.
+
+render
+    должна возвращать jsx, string, number, null, boolean или портал, если возвращается boolean значение или null, то компонент не будет отрендерен
+
+componentWillUnmount() 
+    Этот метод вызывается перед тем, как компонент отмонтируется от DOM и будет уничтожен. В этом методе отключают eventListener, если они есть и отменяют сетевые запросы.
+
+static getDerivedStateFromProps
+
+shouldComponentUpdate(nextProps, nextState) 
+    Вызывается перед функцией render, и не вызывается в самый первый раз при монтировании. Эта функция сообщает реакту, нужно ли вызывать функцию render для компоненты, когда у нее изменились её props или state. Функция должна вернуть булево значение. По умолчанию, она возвращает true и компонент производит render каждый раз при изменении state или props. 
+    Если props изменились, и shouldComponentUpdate возвращает false методы componentWillUpdate, render и compoentDidUpdate не будут вызваны. 
+    Единственное отличие PureComponent от Component заключается в том, что PureComponent реализует поверхностное сравнение в методе shouldComponentUpdate. 
+    Поверхностное сравнение (shallow comparison) — сравнение чисел, булевых значенией и строк по значению, а массивов и объектов по ссылке. 
+getSnapshotBeforeUpdate
+
+componentDidUpdate(prevProps, prevState) 
+    Вызывается сразу после render. Не вызывается после первого вызова render. Этот метод используется для того, чтобы изменять DOM в зависимости от props компоненты. 
+
+componentDidCatch(error, info) 
+    Если в одном из детей компоненты произошла ошибка, будет вызван этот метод. С помощью него можно вызвать setState и указать ошибку в состоянии компоненты, чтобы ее можно было отразить в ui в методе render. 
+
+
+уходящие методы
+componentWillUpdate(nextProps, nextState) 
+    Этот метод вызывается непосредственно перед обновлением компоненты и вызовом render. В этом методе нельзя вызывать setState. Этот метод позволяет сделать подготовки перед обновлением, например, посчитать какие локальные переменные класса. 
+componentWillMount
+    Эта функция вызывается непосредственно перед монтированием и render
+componentWillReceiveProps(nextProps) 
+    Этот метод вызывается каждый раз, когда компонент получает новые props. В этом методе, как правило, обновляют значения state, которые зависят от props. 
+
+
+Монтирование
+  constructor
+  static getDerivedStateFromProps
+  render
+  componentDidMount      
+
+ Обновление
+  static getDerivedStateFromProps
+  shouldComponentUpdate
+  render
+  getSnapshotBeforeUpdate
+  componentDidUpdate
+
+Удаление(unmounting)
+  componentWillUnmount
+
+Обработка ошибок
+  componentDidCatch
+
+Устаревшие
+  componentWillReceiveProps
+  componentWillMount
+  componentWillUpdate
