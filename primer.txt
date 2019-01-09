@@ -1,0 +1,140 @@
+<img src={logo} className="App-logo" alt="logo" />
+  <p>
+    Edit <code>src/App.js</code> and save to reload.
+  </p>
+  <a
+    className="App-link"
+    href="https://reactjs.org"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Learn React
+  </a>
+
+
+-------------------------------------
+
+
+var App = React.createClass({
+  render: function() {
+    return (
+      <div className="app">
+      Всем привет, я компонент App!
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+
+// -------------------------
+
+
+var News = React.createClass({
+  render: function() {
+    return (
+      <div className="news">
+      К сожалению, новостей нет.
+      </div>
+    );
+  }
+});
+
+var App = React.createClass({
+  render: function() {
+    return (
+      <div className="app">
+        Всем привет, я компонент App! Я умею отображать новости.
+        <News />
+      </div>
+    );
+  }
+});
+
+
+/*Давайте, вновь взглянем на код и поищем примечательные места.
+Во-первых - мы никак не изменили код внутри ReactDOM.render. Компонент
+<App />, содержит сейчас в себе другой компонент. Но при этом, это никак не влияет на
+"рендер" всего нашего приложения.
+
+Во-вторых, как уже было сказано - компонент <News /> <App /> содержит в себе компонент
+. Да-да! Так же, как если бы это был просто дочерний
+
+В-третьих, наш компонент <News /><div></div> элемент.
+такой же примитивный, как и App, и содержит
+всего один (обязательный!) метод render.*/
+
+
+
+Использование props
+У каждого компонента могут быть свойства. Они хранятся в this.props
+, и передаются компоненту как атрибуты.
+Общий вид:
+  var value1 = {name: Garry, surname: Potter};
+  <MyComponent data={value1} eshe_odno_svoistvo={[1,2,3,4,5]} />
+
+В свойство можно передать любой javascript примитив, объект, переменную и даже
+выражение. Значение свойства должно быть взято в фигурные скобки.
+
+Значения доступны через this.props.ИМЯ_СВОЙСТВА
+В нашем случае, мы получим:
+    this.props.data - объект  {name: Garry, surname: Potter}
+    this.props.eshe_odno_svoistvo - массив [1,2,3,4,5]
+
+this.props используются только для чтения!
+
+
+
+
+var News = React.createClass({
+  render: function() {
+    var data = this.props.data;
+
+      // массив разметки бросаем в переменную
+      var newsTemplate = data.map(function(item, index) { 
+      return (
+        <div key={index}>
+          <p className="news__author">{item.author}:</p>
+          <p className="news__text">{item.text}</p>
+        </div>
+      )
+    })
+
+    //  возвращаем итоговую разметку
+    return (
+      <div className="news">
+        {newsTemplate}
+      </div>
+    );
+  }
+});
+
+Мы обернули разметку внутри return в корневой элемент <div>. Нужно запомнить - внутри
+return всегда должен возвращаться DOM-узел (то есть, что угодно, обернутое в
+родительский тэг).
+
+Мы использовали у родительского элемента атрибут key (<div key={index}>). Если
+объяснить предельно просто: реакту нужна уникальность, чтобы все его механизмы 
+работали корректно.
+
+Мы использовали в шаблоне, значения переменных + текст, 
+например className="news__author">{item.author}:</p>
+нативном js-коде как 
+могло бы быть представлено в
+<p className="news__author">''+item.author+':'</p>
+(пустая строка + значение переменной + двоеточие)
+
+
+
+
+
+  Запомните первое правило: нельзя вызывать setState в render: реакт
+видит изменилось состояние - начинает перерисовывать компонент - видит что
+изменилось состояние - начинает перерисовывать компонент...
+  Второе правило: render - дорогостоящая операция, поэтому внимательно относитесь к
+тому, где вы вызываете setState, и что это за собой влечет. Банальные console.log'и
+могут вам в этом помочь.
