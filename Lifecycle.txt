@@ -1,4 +1,4 @@
-constructor вызывается при инициализации компоненты
+﻿constructor вызывается при инициализации компоненты
 componentDidMount 
     вызывается сразу же после вызова функции render и монтировании компонента к DOM. Если вам нужно запустить таймеры, получить данные от сервера или получить значения от DOM, например, getBoundingClientRect, эта функция — идеальное место для этого.
 
@@ -33,24 +33,34 @@ componentWillReceiveProps(nextProps)
     Этот метод вызывается каждый раз, когда компонент получает новые props. В этом методе, как правило, обновляют значения state, которые зависят от props. 
 
 
-Монтирование
+Монтирование mounting
   constructor
   static getDerivedStateFromProps
   render
-  componentDidMount      
+  componentDidMount
 
- Обновление
+  constructor() => render() => componentDidMount()
+
+
+ Обновление	updates
   static getDerivedStateFromProps
   shouldComponentUpdate
   render
   getSnapshotBeforeUpdate
   componentDidUpdate
 
-Удаление(unmounting)
-  componentWillUnmount
+  New Props
+		=> render() => componentDidUpdate()
+  setState()
 
-Обработка ошибок
-  componentDidCatch
+
+Удаление(unmounting)
+
+  componentWillUnmount()
+
+
+Обработка ошибок	error
+  componentDidCatch()
 
 Устаревшие
   componentWillReceiveProps
