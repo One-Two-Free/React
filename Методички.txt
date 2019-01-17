@@ -1,0 +1,7 @@
+﻿React.js в деталях
+https://www.notion.so/41d8d438f52442e485d162eb4ef4332b
+
+Паттерны React.js
+https://www.notion.so/React-API-f41a2d90549341108cb4ef7623cb3b1a
+
+http://react1.tilda.ws/metod-*  (вместо * цифры от 1 до 14)
