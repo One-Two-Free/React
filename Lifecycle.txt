@@ -39,7 +39,7 @@ componentWillReceiveProps(nextProps)
     Этот метод вызывается каждый раз, когда компонент получает новые props. В этом методе, как правило, обновляют значения state, которые зависят от props. 
 
 
-Монтирование mounting
+Монтирование mountingв
   constructor
   static getDerivedStateFromProps
   render
